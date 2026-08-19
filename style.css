@@ -1,0 +1,251 @@
+/* --- VARIÁVEIS DE COR --- */
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --background: #f3f4f6;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+}
+
+/* --- RESET E ESTILOS GERAIS --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 10px 0;
+}
+
+header h1 {
+    color: var(--primary);
+    font-size: 1.8rem;
+}
+
+/* --- CARDS E DASHBOARD --- */
+.card {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.metric {
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.metric-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#metric-available {
+    color: var(--success);
+}
+
+/* --- ALERTA DE LIMITE ULTRAPASSADO --- */
+.alert-box {
+    display: none;
+    background-color: #fef3c7;
+    border-left: 4px solid var(--warning);
+    color: #92400e;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+/* --- FORMULÁRIOS --- */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+}
+
+.inline-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+/* --- BOTÕES --- */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    width: auto;
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-hover);
+}
+
+/* --- LISTA DE GASTOS --- */
+.expense-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.expense-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.expense-title {
+    font-weight: bold;
+}
+
+.expense-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.expense-tag {
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.expense-amount {
+    font-weight: bold;
+    color: var(--text);
+    margin-right: 15px;
+}
+
+.right-side {
+    display: flex;
+    align-items: center;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 20px;
+    font-style: italic;
+}
+
+/* --- RESPONSIVIDADE (RNF02) --- */
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .expense-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .right-side {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
